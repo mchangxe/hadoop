@@ -1,0 +1,23 @@
+# In approximately 50-100 words, characterize your observations for 3 configurations of reducers
+
+The three configurations that I used was (3reducers, 10reducers and 15reducers). Some results that I saw are:
+
+	1. CPU time spent seemed to fluctuate when reducers went above 10.
+		It seems like when going above more than 10 reducers, the CPU time stayed around the same.
+	2.Total time spent by all reduce tasks also flunctated:
+		3reducers:   473729
+		10reducers:  382734
+		15reducers:  617382
+		It seems like when going above 10 reducers, reduce tasks took way longer to run. Total megabyte-milliseconds taken by all reduce tasks behaved in the same way; decreased from 3 to 10 but increased from 10 to 15.
+	3. Heap usage:
+		3reducers:   11268492035
+		10reducers:  12369302328
+		15reducers:  14239593002
+		Heap usage definitely went up as the amount of reducers increased.
+	4. Virtual memory:
+		3reducers:   88473485923
+		10reducers:  112832837568
+		15reducers:  135887364569
+		Virtual memory increased as well with the amount of reducers.
+
+Overall, I am seeing a tradeoff when the amount of reducers increases above 10, for the given task. In all the above 4 areas, the difference between running 3-10 and running 10-15 is similar, inferring that after increasing over 10 reducers, improvement rate slows down significantly. 
